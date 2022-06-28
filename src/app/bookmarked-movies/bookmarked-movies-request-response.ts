@@ -1,56 +1,3 @@
-export class MovieData {
-
-    constructor(
-        public response: Response,
-        public results: Movie[]
-    ) { }
-}
-
-export class Response {
-
-    constructor(
-        public errorMessage: string,
-        public queryString: string,
-    ) { }
-}
-
-export class Movie {
-
-    constructor(
-        public id: string,
-        public image: string,
-        public title: string,
-        public description: string,
-        public runtimeStr: string,
-        public genres: string,
-        public genreList: GenreList[],
-        public contentRating: string,
-        public imDbRating: string,
-        public imDbRatingVotes: string,
-        public metacriticRating: string,
-        public plot: string,
-        public stars: string,
-        public starList: StarList[],
-        public bookMarked:boolean
-    ) { }
-}
-
-export class GenreList {
-
-    constructor(
-        public key: string,
-        public value: string
-    ) { }
-}
-
-export class StarList {
-
-    constructor(
-        public id: string,
-        public name: string
-    ) { }
-}
-
 export class BookMarkedMovie {
 
     constructor(
@@ -69,12 +16,12 @@ export class BookMarkedMovie {
         public plotLocalIsRtl?: boolean,
         public awards?: string,
         public directors?: string,
-        public directorList?:DirectorList[],
+        public directorList?: DirectorList[],
         public writers?: string,
         public writerList?: WriterList[],
         public stars?: string,
         public starList?: StarList[],
-        public actorList?:ActorList[],
+        public actorList?: ActorList[],
         public fullCast?: string,
         public genres?: string,
         public genreList?: GenreList[],
@@ -83,7 +30,7 @@ export class BookMarkedMovie {
         public countries?: string,
         public countryList?: CountryList[],
         public languages?: string,
-        public languageList?:LanguageList[],
+        public languageList?: LanguageList[],
         public contentRating?: string,
         public imDbRating?: string,
         public imDbRatingVotes?: string,
@@ -99,9 +46,9 @@ export class BookMarkedMovie {
         public keywordList?: string[],
         public similars?: Similars[],
         public tvSeriesInfo?: string,
-        public tvEpisodeInfo?:string,
-        public errorMessage?:string,
-        public bookMarked?:boolean
+        public tvEpisodeInfo?: string,
+        public errorMessage?: string,
+        public bookMarked?: boolean
     ) { }
 }
 
@@ -169,8 +116,24 @@ export class Similars {
 
     constructor(
         public id: string,
-        public title:string,
+        public title: string,
         public image: string,
         public imDbRating: string
+    ) { }
+}
+
+export class GenreList {
+
+    constructor(
+        public key: string,
+        public value: string
+    ) { }
+}
+
+export class StarList {
+
+    constructor(
+        public id: string,
+        public name: string
     ) { }
 }

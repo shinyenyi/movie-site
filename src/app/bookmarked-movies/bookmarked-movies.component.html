@@ -1,0 +1,29 @@
+<!--------------------------bookMarked movies display ----------------->
+<div class="bookMarkedDispaly">
+  <div *ngFor="let movie of bookMarkedMovies">
+    <nb-card class="card">
+      <nb-card-header>
+        <div>{{movie.title}}</div>
+      </nb-card-header>
+      <nb-card-body class="card-body">
+        <div class="image bookMark"><img src="{{movie.image}}" alt="movie poster"></div>
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="movie-details-column">
+          <div>directors:&nbsp;{{movie.directors}}</div>
+          <div>actors:&nbsp;{{movie.stars}}</div>
+          <div class="movie-details-row">
+            <div>year:&nbsp;{{movie.year}}</div>
+            <div>rating:&nbsp;{{movie.imDbRating}} </div>
+            <div>
+              <button class="btn" *ngIf="movie.bookMarked" (click)="removeFromBookMark(movie.id, movie.bookMarked)"><i
+                  class="fa fa-bookmark" aria-hidden="true"></i></button>
+              <button class="btn" *ngIf="!movie.bookMarked" (click)="removeFromBookMark(movie.id, movie.bookMarked)"><i
+                  class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

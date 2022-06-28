@@ -13,10 +13,14 @@ import { NbThemeModule,
   NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchMovieComponent } from './search-movie/search-movie.component';
+import { BookmarkedMoviesComponent } from './bookmarked-movies/bookmarked-movies.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchMovieComponent,
+    BookmarkedMoviesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,81 @@
+@import url('https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+
+.card {
+  border-radius: 15px;
+  margin-bottom: 1px;
+  max-height: 600px;
+  background-color: rgb(34, 17, 131);
+  border: none;
+}
+
+nb-card-header {
+  background-color: rgba(22, 22, 165, 0.74);
+  color: white;
+  border: none;
+}
+
+nb-card-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  border: none;
+}
+
+nb-card-footer {
+  padding: 1rem 1.5rem;
+  border: none;
+}
+
+.movie-details {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.image.bookMark {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 5px;
+}
+
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.input-field {
+  width: 300px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchDispaly {
+  margin-top: 2rem;
+  // justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: stretch;
+}

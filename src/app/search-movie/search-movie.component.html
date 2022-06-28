@@ -1,0 +1,31 @@
+<!------------------------ default search display---------------------------->
+<div class="search">
+    <input type="text" class="input-field" [(ngModel)]="searchText" (input)="searchForMovie($any($event.target).value)"
+        nbInput shape="semi-round" placeholder="Search Movie">
+</div>
+<div class="searchDispaly">
+    <div *ngFor="let movie of movieData?.results">
+        <nb-card class="card">
+            <nb-card-header>
+                <div>{{movie.title}}</div>
+            </nb-card-header>
+            <nb-card-body class="card-body">
+                <div class="image bookMark"><img src="{{movie.image}}" alt="movie poster"></div>
+
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="movie-details">
+
+                    <div>rating:&nbsp;{{movie.imDbRating}} </div>
+                    <div>year:&nbsp;{{movie.description}}</div>
+                    <div>
+                        <button class="btn" *ngIf="movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
+                                class="fa fa-bookmark" aria-hidden="true"></i></button>
+                        <button class="btn" *ngIf="!movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
+                                class="fa fa-bookmark-o" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

@@ -1,102 +1,28 @@
 <nb-layout>
   <nb-layout-header>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <div class="toolbar">
-        <div class="bookmarked">
-          <button class="btn" (click)="viewAllBookMarked()"><i class="fa fa-bookmark" aria-hidden="true"></i>
-            bookMarked</button>
-        </div>
-        <div class="title">
-          <h1>movie site</h1>
-        </div>
-        <div class="back">
-          <button class="btn" (click)="back()" style="cursor: pointer;"><i class="fa fa-arrow-left"
-              aria-hidden="true"></i>
-            Back</button>
-        </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="toolbar">
+      <div class="bookmarked">
+        <button class="btn" (click)="viewAllBookMarked()"><i class="fa fa-bookmark" aria-hidden="true"></i>
+          bookMarked</button>
       </div>
+      <div class="title">
+        <h1>movie site</h1>
+      </div>
+      <div class="back">
+        <button class="btn" (click)="back()" style="cursor: pointer;"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i>
+          Back</button>
+      </div>
+    </div>
   </nb-layout-header>
 
   <nb-layout-column class="body">
 
-    <!------------------------ default search display---------------------------->
-    <div class="search" *ngIf="searchDisplay">
-      <input type="text" class="input-field" [(ngModel)]="searchText"
-        (input)="searchForMovie($any($event.target).value)" nbInput fullWidth shape="semi-round"
-        placeholder="Search Movie">
-      <div *ngFor="let movie of movieData?.results;let i = index">
-        <div *ngIf="i<10">
-          <nb-card class="card">
-            <nb-card-body class="card-body">
-              <div class="image"><img src="{{movie.image}}" alt="movie poster"></div>
-              <div class="movie-details">
-                <div>{{movie.title}}</div>
-                <div>{{movie.imDbRating}} &nbsp;{{movie.description}}</div>
-                <div>
-                  <button class="btn" *ngIf="movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
-                      class="fa fa-bookmark" aria-hidden="true"></i></button>
-                  <button class="btn" *ngIf="!movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
-                      class="fa fa-bookmark-o" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </nb-card-body>
-          </nb-card>
-        </div>
-        <div *ngIf="i===10" style="align-content: stretch; padding: 10px;">
-          <button class="btn" (click)="viewAll()" style="cursor: pointer;">view all</button>
-        </div>
-      </div>
-    </div>
 
-    <!------------------------- view all display --------------------->
-    <div class="viewAll" *ngIf="viewAllDisplay">
-      <div *ngFor="let movie of movieData?.results">
-        <nb-card class="card">
-          <nb-card-body class="card-body">
-            <div class="image bookMark"><img src="{{movie.image}}" alt="movie poster"></div>
-            <div class="movie-details">
-              <div>{{movie.title}}</div>
-              <div>{{movie.imDbRating}} &nbsp;{{movie.description}}</div>
-              <div>
-                <button class="btn" *ngIf="movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
-                    class="fa fa-bookmark" aria-hidden="true"></i></button>
-                <button class="btn" *ngIf="!movie.bookMarked" (click)="bookMark(movie.id, movie.bookMarked)"><i
-                    class="fa fa-bookmark-o" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </nb-card-body>
-        </nb-card>
-      </div>
-    </div>
-
-    <!--------------------------bookMarked movies display ----------------->
-    <div class="bookMarkedDispaly" *ngIf="bookMarkedDisplay">
-      <div *ngFor="let movie of bookMarkedMovies">
-        <nb-card class="card">
-          <nb-card-body class="card-body">
-            <div class="image bookMark"><img src="{{movie.image}}" alt="movie poster"></div>
-            <div class="movie-details">
-              <div>{{movie.title}}</div>
-              <div>{{movie.imDbRating}} &nbsp;{{movie.year}}</div>
-              <div>{{movie.directors}}</div>
-              <div>{{movie.stars}}</div>
-              <div>
-                <button class="btn" *ngIf="movie.bookMarked" (click)="removeFromBookMark(movie.id, movie.bookMarked)"><i
-                    class="fa fa-bookmark" aria-hidden="true"></i></button>
-                <button class="btn" *ngIf="!movie.bookMarked" (click)="removeFromBookMark(movie.id, movie.bookMarked)"><i
-                    class="fa fa-bookmark-o" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </nb-card-body>
-        </nb-card>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
 
   </nb-layout-column>
-
-  <nb-layout-footer fixed>
-    <footer>
-
-    </footer>
+  <nb-layout-footer style="background-color: rgb(17, 17, 73) !important;">
   </nb-layout-footer>
 </nb-layout>
